@@ -1,0 +1,65 @@
+body {
+    background-color: #333;
+    color: #eee;
+    line-height: 1.8em;
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    width: fit-content;
+}
+
+h1 {
+    margin: 30px auto;
+}
+
+h2 {
+    margin: 10px auto;
+}
+
+header, main, footer {
+    width: 90%;
+    margin: 10px auto;
+}
+
+footer {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.file-input {
+    text-align: center;
+}
+
+#canvas-wrapper, #download-buttons-wrapper {
+    margin: 10px auto;
+    display: none;
+}
+
+.number-inputs-field input[type="number"] {
+    width: 40px;
+    vertical-align: text-top;
+}
+
+#download-buttons-wrapper {
+    width: fit-content;
+    text-align: center;
+}
+
+.download-button {
+    display: inline-block;
+    margin: 5px;
+    font-size: 1.1rem;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background-color: #eee;
+    color: #333;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.download-button:hover {
+    background-color: #333;
+    color: #eee;
+    transition-duration: .2s;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PPM Viewer</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>PPM Viewer</h1>
+    </header>
+    <main>
+        <section class="file-input">
+            <h2>Upload PPM file</h2>
+            <input type="file" accept=".ppm" id="input-ppm">
+        </section>
+        <div id="canvas-wrapper">
+            <canvas width="0" height="0" id="image-output"></canvas>
+        </div>
+        <div id="download-buttons-wrapper">
+            <span class="number-inputs-field">Quality (JPEG only): <input id="image-quality" type="number" min="1" max="100" value="100"> %</span><br>
+            <button class="download-button" onclick="downloadImage('png')">Download as PNG</button>
+            <button class="download-button" onclick="downloadImage('jpg')">Download as JPEG</button>
+        </div>
+    </main>
+    <footer>
+        ©2023 Kjuman Enobikto
+    </footer>
+</body>
+
+</html>
