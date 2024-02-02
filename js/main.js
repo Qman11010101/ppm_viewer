@@ -47,14 +47,11 @@ function parsePPM(lines) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("input-ppm").addEventListener("change", async function (e) {
-        const imageFile = e.target.files[0];
-        filename = removeExtension(imageFile.name);
-        const imageBlob = new Blob([imageFile], { type: "text/plain" });
-        const fileString = await imageBlob.text();
+function loadFile(file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const fileString = e.target.result;
         const fileLines = fileString.split("\n").filter(e => !e.startsWith("#"));
-        // 別フォーマット対応部分後で挿入可能？PGMとPBMにも対応して拡張子PNM増やす
         let img;
         try {
             img = parsePPM(fileLines);
@@ -78,5 +75,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const downloadButtonsWrapper = document.getElementById("download-buttons-wrapper");
         downloadButtonsWrapper.style.display = "block";
+    }
+    reader.readAsText(file);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // ドラッグアンドドロップ時の処理
+    const uploadArea = document.getElementById("upload-wrapper");
+    uploadArea.addEventListener("dragover", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.add("dragover");
+    });
+
+    uploadArea.addEventListener("dragleave", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.remove("dragover");
+    });
+
+    uploadArea.addEventListener("drop", e => {
+        loadFile(e.dataTransfer.files[0]);
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.remove("dragover");
+    });
+
+    document.getElementById("input-ppm").addEventListener("change", async function (e) {
+        loadFile(e.target.files[0]);
     });
 });

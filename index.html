@@ -17,7 +17,10 @@
     <main>
         <section class="file-input">
             <h2>Upload PPM file</h2>
-            <input type="file" accept=".ppm" id="input-ppm">
+            <div id="upload-wrapper">
+                <p>Drag & drop file here or...</p>
+                <input type="file" accept=".ppm" id="input-ppm">
+            </div>
         </section>
         <div id="canvas-wrapper">
             <canvas width="0" height="0" id="image-output"></canvas>

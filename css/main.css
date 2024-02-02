@@ -31,6 +31,22 @@ footer {
     text-align: center;
 }
 
+#upload-wrapper {
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #eee;
+    width: fit-content;
+    user-select: none;
+    transition-duration: .2s;
+}
+
+#upload-wrapper.dragover {
+    border-radius: 20px;
+    background-color: #eee;
+    color: #333;
+    transition-duration: .2s;
+}
+
 #canvas-wrapper, #download-buttons-wrapper {
     margin: 10px auto;
     display: none;
