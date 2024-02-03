@@ -50,6 +50,7 @@ function parsePPM(lines) {
 function loadFile(file) {
     const reader = new FileReader();
     reader.onload = function (e) {
+        filename = removeExtension(file.name);
         const fileString = e.target.result;
         const fileLines = fileString.split("\n").filter(e => !e.startsWith("#"));
         let img;
